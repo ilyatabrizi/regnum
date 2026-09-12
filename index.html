@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>REGNUM Café &amp; Restaurant — Tabriz</title>
+<meta name="description" content="REGNUM Café &amp; Restaurant, Tabriz. The menu, your bag, and who is in the room right now.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#F2EFE7" id="theme-color">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="REGNUM">
+<meta property="og:type" content="website">
+<meta property="og:title" content="REGNUM Café &amp; Restaurant">
+<meta property="og:description" content="Tabriz. The menu, your bag, and who is in the room right now.">
+<meta property="og:url" content="https://ilyatabrizi.github.io/regnum/">
+<meta property="og:image" content="https://ilyatabrizi.github.io/regnum/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/video/poster.webp" as="image" fetchpriority="high">
+<link rel="stylesheet" href="css/app.css?v=e1754a8640">
+<script>
+  // Before anything paints: the theme the customer chose (or the phone's), whether
+  // this is a reload (the logo then shows only briefly), and the scroll offset an
+  // installed app would otherwise restore.
+  (function () {
+    var d = document.documentElement, pref = "system", warm = false;
+    try { pref = localStorage.getItem("regnum.v1.theme") || "system"; } catch (e) {}
+    try { warm = sessionStorage.getItem("regnum.v1.booted") === "1"; } catch (e) {}
+    var dark = pref === "dark" || (pref !== "light" && matchMedia("(prefers-color-scheme: dark)").matches);
+    d.setAttribute("data-theme", pref);
+    d.setAttribute("data-mode", dark ? "dark" : "light");
+    var m = document.getElementById("theme-color");
+    if (m) m.setAttribute("content", dark ? "#0A0C08" : "#F2EFE7");
+    d.className += " booting" + (warm ? " boot-warm" : "");
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    // if the app never arrives, do not keep the page behind the opening screen
+    setTimeout(function () {
+      var b = document.getElementById("boot");
+      if (b) { b.parentNode.removeChild(b); d.classList.remove("booting"); }
+    }, 9000);
+  })();
+</script>
+<!-- preload:start -->
+<link rel="modulepreload" href="js/boot.js">
+<link rel="modulepreload" href="js/brand.js">
+<link rel="modulepreload" href="js/config.js">
+<link rel="modulepreload" href="js/data.js">
+<link rel="modulepreload" href="js/hero.js">
+<link rel="modulepreload" href="js/icons.js">
+<link rel="modulepreload" href="js/install.js">
+<link rel="modulepreload" href="js/motion.js">
+<link rel="modulepreload" href="js/photos.js">
+<link rel="modulepreload" href="js/presence.js">
+<link rel="modulepreload" href="js/reel.js">
+<link rel="modulepreload" href="js/router.js">
+<link rel="modulepreload" href="js/store.js">
+<link rel="modulepreload" href="js/tabbar.js">
+<link rel="modulepreload" href="js/theme.js">
+<link rel="modulepreload" href="js/ui.js">
+<link rel="modulepreload" href="js/util.js">
+<link rel="modulepreload" href="js/views/bag.js">
+<link rel="modulepreload" href="js/views/checkin.js">
+<link rel="modulepreload" href="js/views/home.js">
+<link rel="modulepreload" href="js/views/menu.js">
+<link rel="modulepreload" href="js/views/order.js">
+<link rel="modulepreload" href="js/views/profile.js">
+<!-- preload:end -->
+<script type="module" src="js/app.js?v=e1754a8640"></script>
+</head>
+<body>
+
+<!-- boot:start -->
+<div id="boot" aria-hidden="true"><div class="boot-logo"><svg class="logo" viewBox="0 0 1070 1169" fill="currentColor" focusable="false"><path fill-rule="evenodd" d="M717 8l-389 0 0 527-2 2-5 0-1 1-12 0-1 1-16 1-1 1-7 0-1 1-6 0-1 1-11 1-1 1-4 0-5 2-5 0-1 1-4 0-4 2-8 1-10 4-3 0-1 1-8 2-3 2-7 2-5 3-2 0-24 13-11 8-12 12 0 1 11 10 1 0 5-6 7-5 16-8 7-2 5-3 3 0 1-1 6-1 7-3 8-1 4-2 8-1 1-1 5 0 5-2 1 2-3 6-12 18-4 4-2 4-14 14-7 5-11 4-8 0-6 11 3 2 2 0 4 2 16 1 1-1 5 0 1-1 10-2 17-11 14-14 9-12 11-17 11-21 12-1 1-1 10 0 1-1 15 0 1-1 28 0 1-1 32 0 1 1-10 5-2 0-20 10-2 2-2 0-4 2-10 7-8 4-16 13-1 0-12 11-1 0-35 35-5 7-11 11-4 6-8 8 0 1-8 9 0 1 4 4 1 0 5 5 2 0 6-8 22-22 1 0 14-14 6-4 8-8 7-4 5-5 4-2 10-8 6-3 17-12 12-6 2 1-1 8-1 1 0 3-1 1 0 3-1 1 0 3-1 1-1 5-2 3 0 2-2 3-2 7-8 15 0 2-2 4-2 2-14 27-12 18-2 5-13 19-4 8-10 14 10 8 4 1 14-22 3-3 11-17 12-15 5-9 12-16 6-11 10-15 4-8 0-2 6-11 4-13 3-6 1-8 1-1 0-4 1-1 0-5 1-1 1-12 10-5 7-2 5-3 5-1 3-2 2 0 4-2 3 0 3-2 3 0 3-2 2 0 4-2 3 0 9-4 3 0 1-1 3 0 1-1 3 0 5-2 2 1 0 69-1 1 0 6-1 1-1 7-1 1-2 8-2 3 0 2-4 6-3 7-39 55-1 3-4 5-5 10-2 2-12 25-1 5-2 3 0 2-4 10 0 3-2 5 0 4-2 5-1 12-1 1 0 9-1 1 0 23 15 0 1-1 0-16 2-5 0-4 1-1 2-11 1-1 2-8 2-3 0-2 3-5 0-2 4-8 2-2 4-9 2-2 5-9 3-3 11-17 4-4 12-16 6 16 0 3 1 1 1 5 9 20 2 2 2 5 6 9 12 13 12 9 17 8 3 0 4 2 8 1 1 1 7 0 1 1 14 0 0-4 1-1 0-6-1-1 0-2-14-1-1-1-8-2-8-4-7-5-13-13-5-7-8-15 0-2-6-13 0-2-5-13-1-7-2-4 0-3-2-5 0-4-1-1 0-4-2-5 0-2 2-2 10-20 0-2 4-8 0-3 2-4 0-3 2-5 0-4 1-1 0-5 1-1 0-10 1-1 0-268 2-2 4 2 3 0 5 3 2 0 10 6 12 12 5 7 1 4 2 3 1 6 1 1 0 4 1 1 0 39-1 1-1 32-1 1 0 43 1 1 1 13 2 4 0 3 1 1 2 8 4 8 7 10 7 7 1 0 8 7 14 8 0 4 1 1 0 8 1 1 0 6 1 1 0 7 1 1 0 4 2 5 0 5 1 1 3 15 5 13 0 3 3 6 0 3-7 15-2 2-3 7-11 17-18 17-8 4-10 2-2 4 0 2-3 5 1 1 6 1 1 1 18 0 1-1 3 0 1-1 5-1 6-3 14-10 7-7 0-1 8-9 6-9 1-3 2-1 19 38 2 2 8 16 2 2 10 18 2 0 12-7-22-43 0-2-6-12-1-5-5-10 0-2-2-3-4-14-3-6 0-3-1-1 0-2-2-4 0-3-2-4 0-3-2-4 0-3-1-1 0-3-2-5 0-4-1-1 0-4-1-1 0-4-1-1 0-10-1-1 0-9 1-1 29 19 24 21 1 0 32 31 0 1 14 14 0 1 16 17 0 1 11-10 1 0-1-3-5-7-5-5-10-14-5-5 0-1-9-10-4-6-13-14 0-1-15-15 0-1-17-16-1 0-6-6-26-18-32-16-2 0-5-3-4-1-1-1 1-1 75 1 1 1 21 0 1 1 13 0 1 1 3 0 2 2 2 5 2 2 10 19 3 3 8 13 9 10 0 1 9 9 13 9 11 5 8 1 1 1 19 0 1-1 7-1 6-3 0-1-6-11-4 0-1 1-11-1-1-1-5-1-2-2-6-3-14-14-6-9-4-4-5-9-2-2-5-10-2-2 0-2 1-1 2 1 6 0 1 1 6 0 1 1 5 0 5 2 4 0 1 1 3 0 11 4 7 1 3 2 8 2 9 5 4 1 2 2 10 5 6 4 9 8 1 0 9-9 2-1-12-12-20-14-27-13-2 0-3-2-2 0-19-7-3 0-1-1-3 0-1-1-3 0-5-2-4 0-1-1-3 0-5-2-4 0-1-1-6 0-1-1-5 0-1-1-14-1-3-3 1-1-1-1zM510 117l1 1 6 0 1 1 4 0 1 1 6 1 14 9 5 5 8 13 0 2 2 3 1 10 1 1 0 122-1 1 0 4-1 1-1 5-3 6-10 12-7 5-10 5-6 1-1 1-4 0-1 1-7 0-1 1-3 0-1-1 0-209 2-2zM361 40l323 0 1 1 0 494-1 1-6 0-1-1-18 0-1-1-28 0-1-1-6 0-1-1-7-1-12-6-11-11-7-14-1-9-1-1 0-63 1-1 0-6-1-1 0-12-1-1-1-11-1-1 0-3-1-1-2-8-7-12-9-10 0-1-1 0-12-10 8-6 3-1 14-13 9-13 7-17 0-4 1-1 0-4 1-1 0-7 1-1 0-112-1-1 0-11-1-1 0-3-1-1-2-10-7-15-6-9-12-12-8-6-5-2-6-4-2 0-11-5-3 0-5-2-5 0-1-1-44 0 0 24-1 1 0 29 1 1 0 343-1 1 0 8-1 1-2 10-4 8-11 12-6 3-2 2-2 0-3 2-3 0-4 2-6 0-1 1-36 0-1 1-28 0-1-1 0-493z"/><path fill-rule="evenodd" d="M710 895l0 120 1 1 0 5 1 1 1 6 6 12 3 4 13 12 10 5 6 1 1 1 5 0 1 1 9 0 1-1 6 0 1-1 4 0 1-1 5-1 10-6 11-11 8-14 0-2 2-4 0-4 1-1 0-122-1-1-36 0 0 36-1 1 0 32 1 1 0 10-1 1 0 6 1 1 0 16-1 1 0 3 1 1 0 7-4 10-4 4-7 3-3 0-1-1-5-1-6-6-2-4 0-4-1-1 0-116zM9 895l0 2-1 1 0 165 38 0 0-67 1-1 15 0 9 4 6 6 3 7 0 45 1 1 0 5 4 0 1 1 20 0 1-1 9 0 1 1 1-1 0-46-1-1-1-10-1-1-1-5-5-9-3-4-10-9 11-11 6-12 2-15-1-1-1-10-4-10-4-6-8-8-13-7-6-1-1-1-6 0-1-1zM47 929l4 0 1-1 10 0 1 1 3 0 5 2 5 5 1 5 1 1 0 5-2 5-6 6-4 2-3 0-1 1-15-1-1-1 0-29zM899 911l-6 8-4 8 0 2-2 4 0 4-1 1 0 29-1 1 1 95 2 0 1 1 31 0 1-1 1 1 1-1 0-119 1-1 1-5 5-5 6-3 5 0 7 3 3 3 3 6 0 27 1 1 0 3-1 1 0 9 1 1 0 17-1 1 0 20 1 1 0 11-1 1 0 25 1 1 0 2 4 0 1 1 21 0 1-1 10 0 0-118 3-8 7-6 3 0 1-1 5 0 1 1 2 0 6 5 3 5 0 8 1 1 0 113 11 0 1 1 6 0 1-1 9 0 1 1 2 0 1-1 5 0 0-124-1-1 0-5-1-1-1-5-2-3 0-2-8-11-5-5-14-8-2 0-4-2-3 0-1-1-8 0-1-1-2 0-1 1-9 0-1 1-8 2-6 3-8 6-2 0-7-5-10-5-3 0-4-2-14-1-1 1-6 0-1 1-7 1-10 5-6 4zM560 897l-10 5-12 11-7 12-1 6-2 4 0 5-1 1 0 122 37 1 0-6 1-1 0-10-1-1 0-4 1-1 0-9-1-1 0-8 1-1 0-32-1-1 0-18 1-1-1-1 0-16 1-1 0-10 3-6 3-3 6-3 8 0 4 2 6 6 0 2 1 1 0 122 2 0 1 1 9 0 1-1 12 0 1 1 8-1 1 1 1-1 2 0 0-124-1-1 0-3-1-1 0-3-1-1-1-5-7-12-8-8-13-8-2 0-4-2-3 0-1-1-5 0-1-1-17 1-1 1-3 0-3 2zM399 893l-1 1-9 1-14 7-11 10-8 13-2 10-1 1 0 5-1 1 0 69 1 1 0 7 1 1 0 4 1 1 1 5 6 11 8 9 8 6 14 6 3 0 1 1 19 0 1-1 3 0 1-1 5-1 13-8 10-11 1-3 3-4 0-2 2-3 0-2 2-4 0-5 1-1 0-55-1-1-50 0-1 1 0 7 1 1 0 4-1 1 0 18 2 2 13 0 1 1 0 17-1 1-1 5-2 3-7 5-9 0-1-1-2 0-7-7 0-2-2-4 0-71 1-1 0-2 2-4 4-4 6-3 7 0 6 3 5 6 2 8 36 0 0-7-1-1 0-4-1-1-1-6-4-8-4-6-7-7-9-6-13-5-5 0-1-1zM228 893l-1 1-10 2-14 8-9 9-6 9 0 2-2 3 0 2-2 4 0 3-1 1 0 7-1 1 0 67 1 1 1 10 7 16 7 8 0 1 1 0 5 5 6 4 12 5 4 0 1 1 18 0 1-1 3 0 1-1 5-1 9-5 12-11 5-7 4-8 0-2 2-4 0-4 1-1 0-7-35 0-3 8-7 7-2 0-1 1-9 0-4-2-4-4-2-3 0-2-2-4 0-16 2-2 2 1 30 0 1-1 0-32-1-1-33 0-1-1 0-17 1-1 0-3 6-8 7-3 6 0 5 2 6 6 2 4 0 4 1 1 35 0 1-1 0-6-1-1-1-8-4-9-3-3-2-4-9-9-12-7-2 0-7-3-5 0-1-1z"/><path fill-rule="evenodd" d="M889 1115l0 9 1 1 12 0 1 1 0 33 1 1 11 0 1-1 0-33 1-1 12 0 1-1 0-8-1-1zM836 1115l0 44 1 1 11 0 0-21 1-1 6 6 0 1 6 6 2 4 5 5 10 0 1-1 0-2-1-1 0-4 1-1 0-5-1-1 0-30-12 0 0 21-1 1-10-11-8-11zM793 1115l-2 3-3 10-5 9 0 2-4 7 0 2-3 5 0 2-2 4 2 0 1 1 9 0 2-3 1-4 2-2 17 0 2 2 1 4 2 3 12-1-1-4-2-3 0-2-3-5 0-2-4-7 0-2-6-11 0-2-3-6zM799 1129l2 1 0 2 4 8-2 2-8 0-1-1 1-4 2-3 0-2zM725 1115l0 44 1 1 11 0 1-1 0-10 2-2 4 0 9 13 9 0 1-1 2 0 1 1-1-3-7-10 0-2 5-4 2-4 0-4 1-1-1-7-3-5-4-3-5-2zM738 1126l1-1 10 0 3 3 1 4-1 2-5 4-7 0-2-2zM668 1115l0 30 1 1 1 5 5 6 7 3 15 0 5-2 5-5 3-8 0-30-12 0-1 1 0 11 1 1 0 11-1 1 0 4-4 5-2 0-1 1-5-1-4-5 0-29zM627 1115l-2 4 0 2-8 16 0 2-6 11 0 2-3 7 11 1 2-1 1-4 3-4 17 0 5 9 11 0 2-1-15-31 0-2-3-5-1-5-1-1zM633 1130l2 1 1 4 3 5-2 2-8 0-1-1 2-4 0-2zM564 1115l0 9 2 0 1 1 10 0 1 1 0 33 1 1 11 0 1-1 0-33 1-1 12 0 1-1-1-1 0-8zM472 1115l0 45 35 0 1-1 0-8-1-1-21 0-2-2 0-5 1-1 3 0 1-1 15 0 0-9-18 0-2-2 0-4 2-2 21 0 0-9zM418 1115l0 44 1 1 11 0 1-1 0-3-1-1 1-1 0-6 1-1 4 0 10 13 13 0-9-14 6-6 2-4 0-9-2-5-4-4-7-3zM431 1126l1-1 10 0 3 3 0 6-5 4-7 0-2-2zM281 1115l-1 1 0 7 1 1 0 35 2 1 33 0 1-1 0-9-22 0-2-2 0-5 1-1 18 0 1-1 0-8-1-1-18 0-1-1 0-5 2-2 1 1 14 0 1-1 5 0 0-8-1-1zM268 1115l-34 0-1 1 1 1 0 43 12 0 0-15 1-1 19 0 0-9-2-1-17 0-1-1 0-7 2-2 20 1zM191 1115l0 2-5 9 0 2-4 7 0 2-10 20 0 3 11 0 2-1 1-4 3-4 17 0 2 2 0 2 2 4 2 1 11 0 1-1-2-2-2-7-7-13 0-2-3-5 0-2-2-3 0-2-2-3-1-4-1-1zM197 1130l2 1 1 4 3 5-2 2-7 0-1-1 0-3zM532 1114l-7 3-4 4-2 4 0 7 4 6 9 4 7 1 5 4-5 4-4 0-1-1-4 0-8-4-4 8 0 2 3 2 6 1 1 1 16 0 1-1 5-1 5-5 1-5 1-1-1-2 0-4-3-4-5-3-11-2-5-3 0-3 3-2 8 0 8 3 1-4 3-5-3-2-2 0-4-2zM355 1116l-5 6 0 8 3 5-2 1-6 7 0 9 1 2 3 3 7 3 13 0 5-2 2-2 1 0 4 4 3-1 4-5 0-2-3-3 0-3 2-4 0-4-8-2-1 1 0 2-2 2-3-2-2-3 3-2 3-4 0-2 1-1-1-7-4-4-5-2-8 0zM357 1145l1-2 3-2 2 3 6 5-2 2-7 0-3-3zM366 1122l2 2 0 2-4 4-3-2-1-3 3-3zM137 1115l-6 3-4 4-4 7 0 3-1 1 0 9 1 1 1 5 8 9 7 3 15 0 7-3 5-5-8-7-4 3-5 2-4 0-6-3-4-6 0-8 7-8 3 0 1-1 6 1 6 5 7-7 0-1-5-5-4-2-3 0-1-1-11 0-1 1zM293 1111l10 0 10-9-13 0z"/></svg></div></div>
+<!-- boot:end -->
+
+<!-- Top bar: back on a pushed screen, the page title once its large title has scrolled under, the lockup on Home. -->
+<header id="bar" class="bar">
+  <button class="bar-btn" id="bar-back" type="button" aria-label="Back" hidden></button>
+  <a class="bar-logo" id="bar-logo" href="#/" aria-label="REGNUM — home"></a>
+  <span class="bar-title" id="bar-title" aria-hidden="true"></span>
+</header>
+
+<main id="view" class="view"></main>
+
+<!-- Four places on one capsule of glass; the lens under the current one slides. Check-in stands apart. -->
+<nav id="tabbar" class="tabbar" aria-label="Primary" data-tone="light">
+  <div class="tabs" id="tabs">
+    <span class="tabs-lens" id="tabs-lens" aria-hidden="true"></span>
+    <div class="tabs-row" id="tabs-row">
+      <a class="tab" draggable="false" data-tab="home" href="#/"><span class="tab-ico"></span><span class="tab-l">Home</span></a>
+      <a class="tab" draggable="false" data-tab="menu" href="#/menu"><span class="tab-ico"></span><span class="tab-l">Menu</span></a>
+      <a class="tab" draggable="false" data-tab="bag" href="#/bag"><span class="tab-ico"></span><span class="tab-l">Bag</span><span class="tab-badge" id="bag-badge" aria-hidden="true"></span></a>
+      <a class="tab" draggable="false" data-tab="profile" href="#/profile"><span class="tab-ico"></span><span class="tab-l">Profile</span></a>
+    </div>
+  </div>
+  <a class="ci-btn" id="ci-btn" href="#/checkin" aria-label="Check in" data-in="0">
+    <svg class="ci-ring" viewBox="0 0 64 64" aria-hidden="true"><circle class="ci-ring-fill" cx="32" cy="32" r="30" pathLength="1000"/></svg>
+    <span class="ci-ico" id="ci-ico"></span>
+    <span class="ci-l" id="ci-l">Check in</span>
+    <span class="ci-wide" id="ci-wide">Check in</span>
+    <span class="ci-count" id="ci-count" aria-hidden="true"></span>
+  </a>
+</nav>
+
+<div id="sheet-root"></div>
+<div id="toast-root" aria-live="polite" aria-atomic="true"></div>
+
+<noscript><p style="padding:24px;font:15px/1.5 system-ui">REGNUM needs JavaScript to run.</p></noscript>
+</body>
+</html>

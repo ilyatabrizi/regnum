@@ -1,0 +1,9 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>REGNUM Café &amp; Restaurant</title>
+<meta name="robots" content="noindex">
+<script>
+  // Hash routing: every screen lives at /regnum/#/…, so a typed path comes home.
+  var base = location.pathname.indexOf("/regnum/") === 0 ? "/regnum/" : "/";
+  location.replace(base + "#/");
+</script>
