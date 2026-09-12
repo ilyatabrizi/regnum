@@ -233,6 +233,11 @@ def main():
         check("reel visibly moves on screen (pixel diff over 1.3 s)", d > 0.4, f"{d:.2f}")
         shot("home")
         check("hero carries their lockup as vector, all three bands", J("document.querySelectorAll('.hero-logo svg path').length") == 3)
+        hc = J("(() => { const h = document.querySelector('.hero').getBoundingClientRect(), l = document.querySelector('.hero-logo').getBoundingClientRect(); return { dx: +((l.left + l.width / 2) - (h.left + h.width / 2)).toFixed(2), dy: +((l.top + l.height / 2) - (h.top + h.height / 2)).toFixed(2) }; })()")
+        check("the lockup stands in the exact middle of the hero", abs(hc["dx"]) < 1 and abs(hc["dy"]) < 1, str(hc))
+        check("the hero carries no greeting and no tagline",
+              not J("!!document.querySelector('.hero-eyebrow, .hero-line')")
+              and not re.search(r"good (morning|afternoon|evening)|a long morning|everything on it", J("document.querySelector('.hero').innerText"), re.I))
 
         # --------------------------------------------------------------- home
         cards = J("[...document.querySelectorAll('.card')].map(c => c.querySelector('.card-name').textContent)")
@@ -585,6 +590,8 @@ def main():
         check("wide: check-in reads in words", "Check in" in dj("document.getElementById('ci-wide').innerText") and dj("getComputedStyle(document.getElementById('ci-wide')).display") != "none")
         fr = dj("(() => { const r = document.querySelector('.hero-frame').getBoundingClientRect(); return r.width / r.height; })()")
         check("wide: the portrait reel stands in its own frame, cut to the film", 0.68 < fr < 0.72, f"{fr:.3f}")
+        wc = dj("(() => { const c = (r) => [r.left + r.width / 2, r.top + r.height / 2], [hx, hy] = c(document.querySelector('.hero').getBoundingClientRect()), [lx, ly] = c(document.querySelector('.hero-logo').getBoundingClientRect()), [fx, fy] = c(document.querySelector('.hero-frame').getBoundingClientRect()); return { logo_dx: +(lx - hx).toFixed(2), logo_dy: +(ly - hy).toFixed(2), film_dx: +(fx - hx).toFixed(2), film_dy: +(fy - hy).toFixed(2) }; })()")
+        check("wide: the lockup and the film share the hero's exact centre", all(abs(v) < 1 for v in wc.values()), str(wc))
         check("wide: the room around it is lit by the reel", dj("document.querySelector('.hero-ambient').classList.contains('lit')"))
         check("wide: glass not inside a backdrop root", not dj(BACKDROP_ROOT_JS, ["#tabs", "#ci-btn", "#bar"]))
         check("wide: no sideways scroll", not dj("document.documentElement.scrollWidth > innerWidth + 1"))

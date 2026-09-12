@@ -1,4 +1,5 @@
-// Home. Their reel, full-bleed; then the plates from their own photographs, who
+// Home. Their reel, full-bleed, with their lockup alone in the exact middle of it —
+// no greeting, no tagline (Ilya, 2026-09-12). Then the plates from their own photographs, who
 // is in the room right now, the kitchen, the room itself, and where to find them.
 //
 // There is no Instagram section and no link to one: the grid near the foot is
@@ -8,11 +9,10 @@ import { BUSINESS } from "../config.js";
 import { logo } from "../brand.js";
 import { REEL } from "../reel.js";
 import { byId, SIGNATURES, KITCHEN } from "../data.js";
-import { esc, priceHTML, greeting, firstName } from "../util.js";
+import { esc, priceHTML } from "../util.js";
 import { icon } from "../icons.js";
 import { heroMediaHTML, mountHero } from "../hero.js";
 import { photoHTML, thumbHTML, addHTML, facesHTML, poweredHTML } from "../ui.js";
-import { profile } from "../store.js";
 import * as presence from "../presence.js";
 
 // where each photograph's subject sits, for a 4:5 card
@@ -57,19 +57,14 @@ function roomCard() {
 }
 
 export default function home() {
-  const name = firstName(profile().name);
   const html = `
     <section class="hero" id="hero" style="--lqip:url('${REEL.lqip}')" aria-label="${esc(BUSINESS.full)}">
       ${heroMediaHTML()}
       <div class="hero-veil" aria-hidden="true"></div>
-      <div class="hero-body">
-        <p class="hero-eyebrow">${esc(greeting())}${name ? `, ${esc(name)}` : ` from ${esc(BUSINESS.city)}`}</p>
-        <h1 class="hero-logo">${logo({ cls: "logo--hero" })}</h1>
-        <p class="hero-line">A table, a long morning,<br>and everything on it.</p>
-        <div class="hero-acts">
-          <a class="btn btn--light" href="#/menu">See the menu</a>
-          <a class="btn btn--glass" href="#/checkin" id="hero-here"><i class="live-dot" aria-hidden="true"></i><span></span></a>
-        </div>
+      <div class="hero-mid"><h1 class="hero-logo">${logo({ cls: "logo--hero" })}</h1></div>
+      <div class="hero-acts">
+        <a class="btn btn--light" href="#/menu">See the menu</a>
+        <a class="btn btn--glass" href="#/checkin" id="hero-here"><i class="live-dot" aria-hidden="true"></i><span></span></a>
       </div>
     </section>
 

@@ -16,7 +16,7 @@
 //
 // build.py writes VERSION and both lists; do not edit them by hand.
 
-const VERSION = "regnum-e1754a8640";
+const VERSION = "regnum-19143c28a0";
 const DEV = ["localhost", "127.0.0.1"].includes(location.hostname);
 const MARKER = "./__installed__";
 
